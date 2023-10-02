@@ -7,6 +7,7 @@ import Highlights from "../../components/Highlights";
 import Hero from "../../components/Hero";
 import CardList from "../../components/CardList";
 import CARD_IMAGE from "../../images/logo_2023_150ppi.png";
+import home from "../../data/home";
 
 const HomePage = () => {
   const cardListInfo = [
@@ -42,6 +43,43 @@ const HomePage = () => {
       <HighlightSection title={"Highlight Section"} background={"#eeeeee"}>
         <Highlights />
       </HighlightSection> */}
+      {home.articles.map((article) => {
+        <HighlightSection id="">
+          {/* <Grid container spacing={2} display="flex" direction={"row"}>
+            {article.id % 2 > 0 && (
+              <Grid item xs={6} display="flex" justifyContent={"flex-start"}>
+                <ImageSquare src={DESIGN_IMAGE} alt="some text" />
+              </Grid>
+            )}
+            <Grid
+              item
+              xs={6}
+              display="flex"
+              justifyContent="flex-end"
+              alignItems={"center"}
+            >
+              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                <Article
+                  label={article.label}
+                  title={article.title}
+                  body={article.body}
+                  button={
+                    <SecondaryButton
+                      text={article.button}
+                      onClick={article.onClick}
+                    ></SecondaryButton>
+                  }
+                />
+              </Box>
+            </Grid>
+            {article.id % 2 == 0 && (
+              <Grid item xs={6} display="flex" justifyContent={"flex-start"}>
+                <ImageSquare src={article.image} alt="some text" />
+              </Grid>
+            )}
+          </Grid> */}
+        </HighlightSection>;
+      })}
     </>
   );
 };
