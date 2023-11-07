@@ -10,7 +10,16 @@ import SecondaryHeroButton from "./buttons/SecondaryHeroButton";
 import PrimaryHeroButton from "./buttons/PrimaryHeroButton";
 import { useMediaQuery, Box, Typography } from "@mui/material";
 
-const Hero = () => {
+/* props map
+title = "title"
+image = {image}
+primaryButton = ""
+primaryOnClick = () => {}
+secondaryButton = ""
+secondaryOnClick = () => {}
+*/
+
+const Hero = (props) => {
   const theme = useTheme();
   const isSmScreen = useMediaQuery(theme.breakpoints.up("sm"));
   const isMdScreen = useMediaQuery(theme.breakpoints.up("md"));
@@ -21,7 +30,7 @@ const Hero = () => {
       <section
         className={styles["section"]}
         style={{
-          backgroundImage: `url(${home.heroImage})`,
+          backgroundImage: `url(${props.image})`,
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -35,12 +44,20 @@ const Hero = () => {
               fontWeight={600}
               className={styles["text"]}
             >
-              {home.heroTitle}
+              {props.title}
             </Typography>
           </Box>
           <Box flex={"true"} flexDirection={"row"}>
-            <PrimaryHeroButton text="Talk To Our Team" size="large" />
-            <SecondaryHeroButton text="See What's Possible" size="large" />
+            <PrimaryHeroButton
+              text={props.primaryButton}
+              size="large"
+              onClick={props.primaryOnClick}
+            />
+            <SecondaryHeroButton
+              text={props.secondaryButton}
+              size="large"
+              onClick={props.secondaryOnClick}
+            />
           </Box>
         </Box>
       </section>
